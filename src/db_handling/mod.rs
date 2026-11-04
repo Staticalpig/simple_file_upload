@@ -1,11 +1,23 @@
-pub mod postgress;
+pub mod postgres_handler;
 
-const TIMEOUT_MS: u64 = 5000; // 5000 milliseconds (5 seconds)
-
+#[derive(Debug)]
 pub struct DbConfig  {
     pub host: String,
     pub port: u16,
     pub user: String,
     pub password: String,
     pub database: String,
+}
+
+impl DbConfig {
+    pub fn new(host: String, port: u16, user: String, password: String, database: String) -> Self {
+        DbConfig {
+            host,
+            port,
+            user,
+            password,
+            database,
+        }
+    }
+
 }
